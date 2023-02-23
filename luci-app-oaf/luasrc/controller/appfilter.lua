@@ -66,7 +66,6 @@ function get_hostname_by_mac(dst_mac)
     return ""
 end
 
-
 function handle_feature_upgrade()
 	local fs = require "nixio.fs"
 	local http = require "luci.http"
@@ -86,8 +85,6 @@ function handle_feature_upgrade()
 			end
 		end
 	)
-
-
 end
 
 function get_app_name_by_id(appid)
@@ -103,7 +100,6 @@ end
 function cmp_func(a,b)
 	return a.latest_time > b.latest_time
 end
-
 
 function user_status()
 	local json = require "luci.jsonc"
@@ -140,14 +136,12 @@ function user_status()
 	luci.http.write_json(history);
 end
 
-
 function dev_app_status()
 	local json = require "luci.jsonc"
 	luci.http.prepare_content("application/json")
 	local visit_obj=utl.ubus("appfilter", "dev_list", {});
 	luci.http.write_json(visit_obj);
 end
-
 
 function get_dev_visit_time(mac)
 	local json = require "luci.jsonc"
@@ -172,7 +166,6 @@ function get_app_class_visit_time(mac)
 	local class_array=visit_obj.class_list
 	luci.http.write_json(class_array);
 end
-
 
 function get_dev_visit_list(mac)
 	local json = require "luci.jsonc"
